@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFBC03">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Board Game Fest 2027 Table Finder : trouve une table de jeu près de chez toi le 11 juin.">
+<title>Board Game Fest Table Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rowdies:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app" class="app">
+
+  <!-- ============ 1. LANDING ============ -->
+  <section class="screen screen--landing" id="s-landing" data-screen="landing" aria-labelledby="landing-title">
+    <div class="pattern pattern--yellow" aria-hidden="true"></div>
+    <header class="topbar topbar--landing">
+      <img class="brand-logo" src="img/brand/asmodee-logo.webp" alt="asmodee" width="700" height="274">
+      <div class="topbar__right"><button class="demo-skip demo-skip--top" type="button" data-action="skip"><span data-i18n="landing.skip"></span> <kbd>M</kbd></button><div data-lang-toggle></div></div>
+    </header>
+
+    <div class="landing">
+      <div class="landing__stage" id="landing-stage" aria-hidden="true">
+        <div class="stage__glow"></div>
+        <div class="phone" id="phone-mock">
+          <div class="phone__screen">
+            <div class="mock-map" id="mock-map"></div>
+            <div class="mock-top">
+              <span class="mock-a"><img src="img/brand/asmodee-a.webp" alt="" width="207" height="220"></span>
+              <span class="mock-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span data-i18n="mock.search"></span></span>
+            </div>
+            <div class="mock-chips"><span class="is-on">4 <span data-i18n="filter.games"></span></span><span data-i18n="filter.tables"></span><span data-i18n="filter.occ"></span></div>
+            <div class="mock-card" id="mock-card"></div>
+          </div>
+          <span class="phone__notch"></span>
+        </div>
+        <div class="float float--duo" data-depth="18"><img src="img/ui/char-phone-duo.webp" alt="" width="598" height="900"></div>
+        <div class="float float--mascot" data-depth="30"><img src="img/ui/char-boxmascot.webp" alt="" width="900" height="600"></div>
+        <div class="float float--thrower" data-depth="12"><img src="img/ui/char-card-thrower.webp" alt="" width="595" height="900"></div>
+        <div class="float float--die" data-depth="42"><span class="obj obj--die" data-obj="obj-die"></span></div>
+        <div class="float float--meeple" data-depth="-26"><span class="obj obj--meeple" data-obj="obj-meeple"></span></div>
+        <div class="float float--card" data-depth="34"><span class="obj obj--card" data-obj="obj-card"></span></div>
+      </div>
+
+      <div class="landing__copy">
+        <p class="date-chip" data-stagger><span class="date-chip__date" data-i18n="landing.date"></span><span class="date-chip__sep" aria-hidden="true"></span><span data-i18n="landing.eyebrow"></span></p>
+        <h1 class="landing__title" id="landing-title" data-stagger>
+          <span class="landing__welcome" data-i18n="landing.welcome"></span>
+          <span class="display display--xl">Board Game Fest</span>
+          <span class="block-title"><span>Table Finder</span></span>
+        </h1>
+        <p class="landing__lead" data-i18n="landing.lead" data-stagger></p>
+        <div class="landing__ctas" data-stagger>
+          <button class="btn btn--primary btn--xl" type="button" data-action="signup">
+            <span data-i18n="landing.cta"></span>
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="landing__login"><span data-i18n="landing.login.q"></span> <button class="link-btn" type="button" data-action="login" data-i18n="landing.login"></button></p>
+        </div>
+        <ul class="landing__facts" data-stagger>
+          <li><b data-i18n="landing.fact1.k"></b><span data-i18n="landing.fact1.v"></span></li>
+          <li><b data-i18n="landing.fact2.k"></b><span data-i18n="landing.fact2.v"></span></li>
+          <li><b data-i18n="landing.fact3.k"></b><span data-i18n="landing.fact3.v"></span></li>
+        </ul>
+      </div>
+    </div>
+    <button class="demo-skip demo-skip--bottom" type="button" data-action="skip"><span data-i18n="landing.skip"></span> <kbd>M</kbd></button>
+  </section>
+
+  <!-- ============ 2. ACCOUNT ============ -->
+  <section class="screen screen--onb" id="s-account" data-screen="account" data-step="1" aria-labelledby="account-title">
+    <div class="pattern pattern--yellow" aria-hidden="true"></div>
+    <header class="topbar topbar--onb" data-onb-top></header>
+    <div class="onb">
+      <div class="onb__intro">
+        <p class="kicker" data-i18n="account.kicker" data-stagger></p>
+        <h2 class="display display--lg" id="account-title" data-i18n="account.title" data-stagger></h2>
+        <p class="onb__lead" id="account-lead" data-i18n="account.lead" data-stagger></p>
+        <div class="onb__art onb__art--account" aria-hidden="true"><img src="img/ui/hero-table.webp" alt="" width="1562" height="1355" decoding="async"></div>
+      </div>
+      <div class="onb__card card-hard" data-stagger>
+        <div class="social">
+          <button class="btn btn--apple" type="button" data-action="auth" data-provider="apple">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.78.74 2.99.72 1.24-.02 2.02-1.12 2.77-2.23.88-1.28 1.24-2.52 1.26-2.59-.03-.01-2.41-.93-2.43-3.65zM14.1 5.84c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.1 1.75-.96 2.79 1.01.08 2.05-.52 2.68-1.27z"/></svg>
+            <span data-i18n="account.apple"></span>
+          </button>
+          <button class="btn btn--google" type="button" data-action="auth" data-provider="google">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            <span data-i18n="account.google"></span>
+          </button>
+        </div>
+        <div class="divider"><span data-i18n="account.or"></span></div>
+        <form class="form" id="account-form" novalidate>
+          <div class="field" data-field="firstname">
+            <label for="f-firstname" data-i18n="field.firstname"></label>
+            <div class="field__box">
+              <input id="f-firstname" name="firstname" type="text" autocomplete="given-name" data-i18n-attr="placeholder:field.firstname.ph" aria-describedby="e-firstname">
+              <span class="field__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            </div>
+            <p class="field__err" id="e-firstname" aria-live="polite"></p>
+          </div>
+          <div class="field" data-field="email">
+            <label for="f-email" data-i18n="field.email"></label>
+            <div class="field__box">
+              <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" data-i18n-attr="placeholder:field.email.ph" aria-describedby="e-email">
+              <span class="field__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            </div>
+            <p class="field__err" id="e-email" aria-live="polite"></p>
+          </div>
+          <div class="field" data-field="password">
+            <label for="f-password" data-i18n="field.password"></label>
+            <div class="field__box">
+              <input id="f-password" name="password" type="password" autocomplete="new-password" data-i18n-attr="placeholder:field.password.ph" aria-describedby="e-password pw-meter-label">
+              <button class="field__eye" type="button" id="pw-eye" data-i18n-attr="aria-label:pw.show">
+                <svg class="eye-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A10 10 0 0 1 12 6c6.4 0 10 6 10 6a17 17 0 0 1-3.2 3.8M6.5 7.6C3.8 9.4 2 12 2 12s3.6 6.5 10 6.5c1.6 0 3-.4 4.2-1M9.9 10a3 3 0 0 0 4.2 4.2"/></svg>
+              </button>
+            </div>
+            <div class="pw-meter" id="pw-meter" data-level="0" aria-hidden="false">
+              <span></span><span></span><span></span><span></span>
+              <p class="pw-meter__label" id="pw-meter-label" aria-live="polite"></p>
+            </div>
+            <p class="field__err" id="e-password" aria-live="polite"></p>
+          </div>
+          <button class="btn btn--primary btn--block" type="submit" id="account-submit"><span data-i18n="account.submit"></span><svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form__switch"><span id="switch-q" data-i18n="account.switch.toLogin.q"></span> <button class="link-btn" type="button" id="switch-mode" data-i18n="account.switch.toLogin"></button></p>
+          <p class="form__legal" data-i18n="account.legal"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. LOCATION ============ -->
+  <section class="screen screen--onb" id="s-location" data-screen="location" data-step="2" aria-labelledby="loc-title">
+    <div class="pattern pattern--yellow" aria-hidden="true"></div>
+    <header class="topbar topbar--onb" data-onb-top></header>
+    <div class="onb">
+      <div class="onb__intro">
+        <p class="kicker" data-i18n="loc.kicker" data-stagger></p>
+        <h2 class="display display--lg" id="loc-title" data-i18n="loc.title" data-stagger></h2>
+        <p class="onb__lead" data-i18n="loc.lead" data-stagger></p>
+        <div class="onb__art onb__art--loc" aria-hidden="true">
+          <span class="pin3d" data-obj="pin-3d"></span>
+        </div>
+      </div>
+      <div class="onb__card card-hard" data-stagger>
+        <form id="loc-form" novalidate>
+          <label class="loc-label" for="f-postcode" data-i18n="loc.label"></label>
+          <div class="code" id="code-box">
+            <input id="f-postcode" class="code__input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" autocomplete="postal-code" aria-describedby="loc-status">
+            <div class="code__slots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="loc-status" id="loc-status" aria-live="polite"></div>
+          <div class="divider"><span data-i18n="loc.or"></span></div>
+          <button class="btn btn--ghost btn--block btn--locate" type="button" id="btn-locate">
+            <span class="radar" aria-hidden="true"><span></span><span></span><span></span><i></i></span>
+            <span class="btn--locate__label" data-i18n="loc.use"></span>
+          </button>
+          <button class="btn btn--primary btn--block" type="submit" id="loc-submit" disabled><span data-i18n="loc.continue"></span><svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form__legal" data-i18n="loc.privacy"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. GAMES ============ -->
+  <section class="screen screen--onb screen--games" id="s-games" data-screen="games" data-step="3" aria-labelledby="games-title">
+    <div class="pattern pattern--yellow" aria-hidden="true"></div>
+    <header class="topbar topbar--onb" data-onb-top></header>
+    <div class="games">
+      <div class="games__head">
+        <div>
+          <p class="kicker" data-i18n="games.kicker" data-stagger></p>
+          <h2 class="display display--lg" id="games-title" data-i18n="games.title" data-stagger></h2>
+          <p class="onb__lead" data-i18n="games.lead" data-stagger></p>
+        </div>
+        <div class="games__tools" data-stagger>
+          <span class="games__count" id="games-count" aria-live="polite"></span>
+          <button class="btn btn--small btn--outline" type="button" id="games-all"></button>
+        </div>
+      </div>
+      <ul class="tiles" id="game-tiles" role="list"></ul>
+    </div>
+    <div class="games__bar">
+      <button class="btn btn--primary btn--xl btn--block" type="button" id="games-go" disabled>
+        <span id="games-go-label"></span>
+        <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ 5. LOADER ============ -->
+  <section class="screen screen--loader" id="s-loader" data-screen="loader" aria-live="polite" aria-busy="true">
+    <div class="pattern pattern--dark" aria-hidden="true"></div>
+    <div class="loader">
+      <div class="loader__stage" aria-hidden="true">
+        <div class="lcards" id="lcards"></div>
+        <div class="dice">
+          <div class="die die--a"><div class="die__cube" data-die></div></div>
+          <div class="die die--b"><div class="die__cube" data-die></div></div>
+        </div>
+        <div class="mono"><img src="img/brand/asmodee-a.webp" alt="" width="207" height="220"><span class="mono__shadow"></span></div>
+      </div>
+      <h2 class="display display--md loader__title" data-i18n="loader.title"></h2>
+      <div class="loader__bar"><span id="loader-bar"></span></div>
+      <ol class="loader__steps" id="loader-steps"></ol>
+    </div>
+  </section>
+
+  <!-- ============ 6. MAP ============ -->
+  <section class="screen screen--map" id="s-map" data-screen="map" aria-label="Board Game Fest Table Finder">
+    <div class="map-canvas" id="map-canvas"></div>
+
+    <div class="map-top" id="map-top">
+      <div class="map-bar">
+        <button class="map-home" type="button" data-action="home" data-i18n-attr="aria-label:a11y.home"><img src="img/brand/asmodee-a.webp" alt="" width="207" height="220"></button>
+        <div class="search" id="search">
+          <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          <input id="search-input" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="search-list" aria-autocomplete="list" data-i18n-attr="placeholder:map.search.ph;aria-label:map.search.label">
+          <button class="search__clear" type="button" id="search-clear" hidden data-i18n-attr="aria-label:map.search.clear"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          <div class="search__list" id="search-list" role="listbox" hidden></div>
+        </div>
+        <div class="map-bar__right">
+          <div data-lang-toggle></div>
+          <button class="avatar" type="button" id="avatar-btn" aria-haspopup="menu" aria-expanded="false" data-i18n-attr="aria-label:map.avatar"><span id="avatar-initial">C</span></button>
+        </div>
+      </div>
+      <div class="chips" id="chips" role="toolbar" data-i18n-attr="aria-label:filter.bar"></div>
+    </div>
+
+    <div class="map-ctrls" id="map-ctrls">
+      <button class="map-ctrl" type="button" data-map="zoomIn" data-i18n-attr="aria-label:map.zoomIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button class="map-ctrl" type="button" data-map="zoomOut" data-i18n-attr="aria-label:map.zoomOut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+      <button class="map-ctrl map-ctrl--loc" type="button" data-map="recenter" data-i18n-attr="aria-label:map.recenter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.2" class="fill"/></svg></button>
+    </div>
+
+    <div class="map-bottom" id="map-bottom">
+      <div class="results">
+        <p class="results__count"><b id="results-n">0</b> <span id="results-word"></span><span class="results__sort" id="results-sort"></span></p>
+        <div class="car-arrows">
+          <button class="icon-btn icon-btn--card" type="button" id="car-prev" data-i18n-attr="aria-label:car.prev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="icon-btn icon-btn--card" type="button" id="car-next" data-i18n-attr="aria-label:car.next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel" id="carousel" role="list" data-i18n-attr="aria-label:car.label"></div>
+      <div class="empty" id="empty" hidden>
+        <img src="img/ui/char-finger.webp" alt="" width="600" height="900">
+        <div>
+          <p class="empty__title" data-i18n="empty.title"></p>
+          <p class="empty__text" data-i18n="empty.text"></p>
+          <button class="btn btn--primary btn--small" type="button" data-action="reset-filters" data-i18n="empty.cta"></button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="detail" id="detail" aria-hidden="true" aria-labelledby="detail-name" tabindex="-1">
+      <div class="detail__grab" id="detail-grab"><button class="detail__handle" type="button" id="detail-handle" data-i18n-attr="aria-label:detail.drag"></button></div>
+      <button class="icon-btn icon-btn--float detail__close" type="button" data-action="close-detail" data-i18n-attr="aria-label:a11y.close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="detail__bar" id="detail-bar" aria-hidden="true"><span class="detail__bar-name" id="detail-bar-name"></span></div>
+      <div class="detail__scroll" id="detail-scroll"></div>
+      <div class="detail__foot" id="detail-foot"></div>
+      <div class="detail__layer" id="detail-layer" aria-hidden="true"></div>
+    </aside>
+    <div class="scrim" id="detail-scrim" data-action="close-detail"></div>
+  </section>
+
+  <!-- overlays -->
+  <div class="overlay-root" id="overlay-root"></div>
+  <div class="auth-sheet" id="auth-sheet" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="data/games.js"></script>
+<script src="data/venues.js"></script>
+<script src="data/mapdata.js"></script>
+<script src="js/map.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
